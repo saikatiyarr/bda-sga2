@@ -7,7 +7,7 @@
 ![MySQL](https://img.shields.io/badge/MySQL-Database-blue)
 ![Maven](https://img.shields.io/badge/Maven-Build-red)
 
-**👤 Name:** S  
+**👤 Name:** Sai Katiyar 
 **📘 Subject:** Building Database Applications  
 
 ---
