@@ -244,5 +244,3 @@ This project demonstrates:
 - ✔️ Basic testing & exception handling  
 
 ---
-
-⭐ *A complete beginner-friendly full-stack Java project!*
