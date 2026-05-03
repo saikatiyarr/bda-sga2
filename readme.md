@@ -1,50 +1,57 @@
-# BDA Assignment 2 — Spring Boot CRUD Application
+# 📚 BDA Assignment 2 — Spring Boot CRUD Application
 
-## Student & Course Management System
+## 🎓 Student & Course Management System
 
-**Name:** Sai Katiyar
-**Subject:** Building Database Applications  
+![Spring Boot](https://img.shields.io/badge/Spring%20Boot-Framework-brightgreen)
+![Java](https://img.shields.io/badge/Java-Backend-orange)
+![MySQL](https://img.shields.io/badge/MySQL-Database-blue)
+![Maven](https://img.shields.io/badge/Maven-Build-red)
+
+**👤 Name:** S  
+**📘 Subject:** Building Database Applications  
 
 ---
 
-## 1. Introduction
+## 🚀 1. Introduction
 
-This project is a Spring Boot CRUD application developed to manage two entities: **Students** and **Courses**.
+This project is a **Spring Boot CRUD application** to manage:
 
-The goal of the assignment is to implement:
+- 👨‍🎓 Students  
+- 📘 Courses  
 
-- Create  
-- Read  
-- Update  
+### 🎯 Features Implemented
 
-Using:
+- ✅ Create  
+- ✅ Read  
+- ✅ Update  
+
+### 🛠️ Tech Used
 
 - Spring Boot (Backend)  
 - JSP (View Layer)  
 - MySQL (Database)  
 
-A relationship is established where:
+### 🔗 Relationship
 
-- One student can have multiple courses  
-- Each course belongs to one student  
-
----
-
-## 2. Entity Relationship Design
-
-### Relationship
-
-- One Student → Many Courses  
-- Many Courses → One Student  
-
-### Annotations Used
-
-- `@OneToMany` (Student side)  
-- `@ManyToOne` (Course side)  
+> One student can have multiple courses, and each course belongs to one student.
 
 ---
 
-## 3. Project Structure
+## 🧩 2. Entity Relationship Design
+
+### 🔁 Relationship Mapping
+
+- **1 Student → Many Courses**  
+- **Many Courses → 1 Student**
+
+### 🏷️ Annotations
+
+- `@OneToMany` → Student  
+- `@ManyToOne` → Course  
+
+---
+
+## 📁 3. Project Structure
 
 ```bash
 student-course-crud/
@@ -84,22 +91,22 @@ student-course-crud/
 
 ---
 
-## 4. Tech Stack
+## 🧰 4. Tech Stack
 
 | Layer       | Technology               |
 |------------|--------------------------|
-| Backend    | Spring Boot, Spring MVC  |
-| Database   | MySQL                    |
-| ORM        | JPA (Hibernate)          |
-| View       | JSP + JSTL               |
-| Testing    | JUnit, Mockito           |
-| Build Tool | Maven                    |
+| 🖥️ Backend | Spring Boot, Spring MVC  |
+| 🗄️ Database | MySQL                    |
+| 🔄 ORM     | JPA (Hibernate)          |
+| 🎨 View    | JSP + JSTL               |
+| 🧪 Testing | JUnit, Mockito           |
+| 📦 Build   | Maven                    |
 
 ---
 
-## 5. Database Population
+## 🗃️ 5. Database Population
 
-### Student Table Data
+### 👨‍🎓 Student Data
 
 ```sql
 INSERT INTO student (name, email) VALUES ('Rahul', 'rahul@gmail.com');
@@ -114,7 +121,7 @@ INSERT INTO student (name, email) VALUES ('Akansha', 'akansha@gmail.com');
 INSERT INTO student (name, email) VALUES ('Vaidya', 'Vaidya@gmail.com');
 ```
 
-### Course Table Data
+### 📘 Course Data
 
 ```sql
 INSERT INTO course (title, credits, student_id) VALUES ('Math', 4, 1);
@@ -131,126 +138,111 @@ INSERT INTO course (title, credits, student_id) VALUES ('ML', 3, 1);
 
 ---
 
-## 6. Implementation Details
+## ⚙️ 6. Implementation Details
 
-### 6.1 Create Operation
+### ➕ Create
 
-- JSP forms (`add-student.jsp`, `add-course.jsp`) used for input  
-- Data sent via POST request  
-- Controller saves data through service layer  
+- Forms: `add-student.jsp`, `add-course.jsp`  
+- POST request to controller  
+- Service layer saves data  
 
-### 6.2 Read Operation
+### 📖 Read
 
-- Data displayed using JSP (`student-list.jsp`, `course-list.jsp`)  
-- JSTL `<c:forEach>` used for iteration  
-- Custom JOIN query used  
+- Display: `student-list.jsp`, `course-list.jsp`  
+- JSTL `<c:forEach>` used  
+- JOIN query implemented  
 
 ```java
 @Query("SELECT c FROM Course c JOIN c.student s")
 List<Course> getCoursesWithStudents();
 ```
 
-### 6.3 Update Operation
+### ✏️ Update
 
-- Fetch data by ID  
-- Display in form (`update-student.jsp`)  
+- Fetch by ID  
+- Show in form  
 - Save updated data  
 
 ---
 
-## 7. Repository Layer
+## 🧱 7. Architecture Layers
 
-- Interfaces extend `JpaRepository`  
-- Provides built-in CRUD methods  
+### 📦 Repository Layer
+- Extends `JpaRepository`
+- Provides CRUD operations  
 
-Custom query:
+### 🧠 Service Layer
+- Business logic  
+- Connects controller & repository  
 
-```java
-@Query("SELECT c FROM Course c JOIN c.student s")
-```
-
----
-
-## 8. Service Layer
-
-- Contains business logic  
-- Handles data operations  
-- Connects controller and repository  
-
----
-
-## 9. Controller Layer
-
+### 🌐 Controller Layer
 - Handles HTTP requests  
-- Uses `@GetMapping` and `@PostMapping`  
-- Sends data to JSP views  
+- Uses `@GetMapping`, `@PostMapping`  
 
----
-
-## 10. View Layer (JSP)
-
-- JSP used for UI  
-- JSTL and EL for rendering  
+### 🎨 View Layer
+- JSP + JSTL  
 - Basic CSS styling  
 
 ---
 
-## 11. Exception Handling
+## ⚠️ 8. Exception Handling
 
-- Basic try-catch used in controllers  
+- Try-catch blocks in controllers  
 - Prevents application crashes  
 
 ---
 
-## 12. Testing
+## 🧪 9. Testing
 
-- Unit testing using JUnit and Mockito  
-- Basic service layer tests implemented  
-
----
-
-## 13. Challenges Faced
-
-| Problem                  | Solution                                      |
-|------------------------|----------------------------------------------|
-| JSP not loading        | Added dependencies and view resolver         |
-| Relationship confusion | Used proper annotations                      |
-| Course not saving      | Added student selection in form              |
-| Data not showing       | Fixed `model.addAttribute()` and JSTL usage  |
-| Form binding issues    | Correct field names and Lombok               |
+- JUnit + Mockito  
+- Service layer unit tests  
 
 ---
 
-## 14. How to Run
+## 🧩 10. Challenges Faced
 
-### 1. Create Database
+| ❌ Problem              | ✅ Solution                                  |
+|------------------------|---------------------------------------------|
+| JSP not loading        | Configured view resolver                    |
+| Relationship confusion | Correct use of annotations                  |
+| Course not saving      | Added student selection                     |
+| Data not showing       | Fixed `model.addAttribute()`                |
+| Form binding issues    | Correct field names + Lombok                |
+
+---
+
+## ▶️ 11. How to Run
+
+### 1️⃣ Create Database
 
 ```sql
 CREATE DATABASE studentdb;
 ```
 
-### 2. Configure Credentials  
+### 2️⃣ Configure
 Update `application.properties`
 
-### 3. Run Project
+### 3️⃣ Run
 
 ```bash
 mvn spring-boot:run
 ```
 
-### 4. Open in Browser
+### 4️⃣ Open
 
-http://localhost:8080/
+👉 http://localhost:8080/
 
 ---
 
-## 15. Conclusion
+## 🎉 12. Conclusion
 
 This project demonstrates:
 
-- Spring Boot CRUD operations  
-- JPA entity relationships  
-- JSP with Spring MVC  
-- Basic testing and exception handling  
+- ✔️ Spring Boot CRUD operations  
+- ✔️ JPA relationships  
+- ✔️ JSP with Spring MVC  
+- ✔️ Basic testing & exception handling  
 
-The application successfully performs Create, Read, and Update operations for Students and Courses.
+---
+
+⭐ *A complete beginner-friendly full-stack Java project!*
