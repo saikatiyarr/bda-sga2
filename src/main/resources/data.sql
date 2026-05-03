@@ -1,0 +1,21 @@
+INSERT INTO student (name, email) VALUES ('Rahul', 'rahul@gmail.com');
+INSERT INTO student (name, email) VALUES ('Amit', 'amit@gmail.com');
+INSERT INTO student (name, email) VALUES ('Aman', 'aman@gmail.com');
+INSERT INTO student (name, email) VALUES ('Arpit', 'arpit@gmail.com');
+INSERT INTO student (name, email) VALUES ('Vijay', 'vijay@gmail.com');
+INSERT INTO student (name, email) VALUES ('Sanjay', 'Sanjay@gmail.com');
+INSERT INTO student (name, email) VALUES ('Rohit', 'rohit@gmail.com');
+INSERT INTO student (name, email) VALUES ('Simran', 'simran@gmail.com');
+INSERT INTO student (name, email) VALUES ('Akansha', 'akansha@gmail.com');
+INSERT INTO student (name, email) VALUES ('Vaidya', 'Vaidya@gmail.com');
+
+INSERT INTO course (title, credits, student_id) VALUES ('Math', 4, 1);
+INSERT INTO course (title, credits, student_id) VALUES ('Physics', 3, 1);
+INSERT INTO course (title, credits, student_id) VALUES ('Chemistry', 5, 1);
+INSERT INTO course (title, credits, student_id) VALUES ('English', 3, 1);
+INSERT INTO course (title, credits, student_id) VALUES ('Hindi', 4, 1);
+INSERT INTO course (title, credits, student_id) VALUES ('Music', 6, 1);
+INSERT INTO course (title, credits, student_id) VALUES ('Database', 5, 1);
+INSERT INTO course (title, credits, student_id) VALUES ('OS', 6, 1);
+INSERT INTO course (title, credits, student_id) VALUES ('Environmental', 3, 1);
+INSERT INTO course (title, credits, student_id) VALUES ('ML', 3, 1);
